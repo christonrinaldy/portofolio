@@ -7,10 +7,10 @@ import others_icon from '../assets/databases_icon.png'
 import arcade from '../assets/arcade.png'
 import github_icon from '../assets/github_icon.png'
 import linkedin_icon from '../assets/linkedin_icon.png'
-import whatsapp_icon from '../assets/whatsapp_icon.jpg'
 import email_icon from '../assets/email_icon.png'
 import ecommerce from '../assets/e-commerce.png'
 import cinema from '../assets/cinema.jpg'
+import about_background from '../assets/about-background.jpg'
 
 export default function Home() {
     const [mySkills, setSkillPage] = useState(null)
@@ -27,8 +27,8 @@ export default function Home() {
         setProjectPage(document.getElementById("projects"))
     },[])
     return (
-        <Container style={{scrollBehavior:"smooth"}}>
-            <Navbar>
+        <>
+            <Navbar sticky="top" style = {{ backgroundColor: "burlywood"}}>
                 <Navbar.Brand href="/">CHRISTON RINALDY</Navbar.Brand>
                 <Nav className="mr-auto">
                 <Nav.Link href="" onClick={() => aboutMe.scrollIntoView()}>About</Nav.Link>
@@ -36,8 +36,8 @@ export default function Home() {
                 <Nav.Link href="" onClick={() => myProjects.scrollIntoView() }>MyProjects</Nav.Link>
                 </Nav>
             </Navbar>
-            <section id="about" style={{display: "flex",flexDirection:"column",justifyContent:"space-around"}}>
-                <div style={{justifyContent:"center", backgroundColor:"Background"}}>
+            <section id="about" style={{display: "flex",flexDirection:"column",justifyContent:"space-around", background: `url(${about_background})`, color: "lightyellow", fontWeight: "bold"}}>
+                <div style={{justifyContent:"center"}}>
                     <div style={{display:"flex",justifyContent:"center", flexDirection:"column",alignContent:"center", textAlign:"center"}}>
                         <div style={{display:"flex", justifyContent:"center"}}>
                             <Image src={profile} roundedCircle={true} width="200px" />
@@ -58,16 +58,13 @@ export default function Home() {
                         <h4>Contact</h4>
                         <div style={{display:"flex",flexDirection:"column"}}>
                             <div>
-                                <img src={github_icon} width="20px" height="20px"></img>https://github.com/christonrinaldy
+                                <img src={github_icon} width="50px" height="50px" onMouseOver={(e)=> console.log(e.target.style.transform = "scale(1.5)")} onMouseLeave={(e)=> console.log(e.target.style.transform = "scale(1)")} onClick={() => window.open('https://github.com/christonrinaldy')}></img>
                             </div>
                             <div>
-                                <img src={linkedin_icon} width="20px" height="20px"></img>https://www.linkedin.com/in/christonrjb
+                                <img src={linkedin_icon} width="50px" height="50px" onMouseOver={(e)=> console.log(e.target.style.transform = "scale(1.5)")} onMouseLeave={(e)=> console.log(e.target.style.transform = "scale(1)")} onClick={() => window.open('https://www.linkedin.com/in/christonrjb/')}></img>
                             </div>
                             <div>
-                                <img src={whatsapp_icon} width="20px" height="20px"></img>+628 2166 2508 44
-                            </div>
-                            <div>
-                                <img src={email_icon} width="20px" height="20px"></img>christonrinaldy.geodesy@gmail.com
+                                <img src={email_icon} width="50px" height="50px" onMouseOver={(e)=> console.log(e.target.style.transform = "scale(1.5)")} onMouseLeave={(e)=> console.log(e.target.style.transform = "scale(1)")} onClick={() => window.open('christonrinaldy.geodesy@gmail.com')}></img>
                             </div>
                         </div>
                     </div>
@@ -203,6 +200,6 @@ export default function Home() {
                     </CardDeck>
                 </div>
             </section>
-        </Container>
+        </>
     )
 }
